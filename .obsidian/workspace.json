@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "1f563ac36a6cd56b",
+    "type": "split",
+    "children": [
+      {
+        "id": "3e8b97fed244797b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "448c40a525c3d7f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "modelos-agents/tool-nmap-agent/prompts/system_prompt.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "system_prompt"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "52ba8f1909ba64e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d0dc428fbc5cc10",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "74ab23116aa72d83",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "11a6f15077604ad8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "45c279897e7b71de",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0a91d7e6ae6e148b",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f32cfa8d0dcf8fd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "40e992f33677b497",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "modelos-agents/tool-nmap-agent/prompts/system_prompt.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos para system_prompt"
+            }
+          },
+          {
+            "id": "30bbb2529b3e8980",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "modelos-agents/tool-nmap-agent/prompts/system_prompt.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída para system_prompt"
+            }
+          },
+          {
+            "id": "dfdfe9f6768b0efb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "076f6728c0cde6e0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "modelos-agents/tool-nmap-agent/prompts/system_prompt.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário de system_prompt"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false
+    }
+  },
+  "active": "448c40a525c3d7f1",
+  "lastOpenFiles": [
+    "nmap-client/client.py",
+    "nmap-client/templates/results.html",
+    "nmap-client/templates/index.html",
+    "nmap-client/Dockerfile",
+    "nmap-client/requirements.txt",
+    "docker-compose.yml",
+    "nmap-client/templates",
+    "nmap-client",
+    "modelos-agents/chat-client/src/services/api.ts",
+    "modelos-agents/chat-client/src/services",
+    "modelos-agents/chat-client/src/components/Message.tsx",
+    "modelos-agents/chat-client/README.md",
+    "modelos-agents/tool-nmap-agent/README.md",
+    "modelos-agents/tool-nmap-agent/prompts/system_prompt.md",
+    "modelos-agents/guia-prompts-offensive-security.md"
+  ]
+}

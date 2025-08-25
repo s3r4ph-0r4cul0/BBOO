@@ -1,0 +1,5 @@
+python-nmap
+flask
+google-generativeai
+ollama
+Pillow

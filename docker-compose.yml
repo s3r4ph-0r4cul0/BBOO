@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  agent:
+    build:
+      context: ./modelos-agents/tool-nmap-agent
+    ports:
+      - "5000:5000"
+    environment:
+      # A chave será lida de um arquivo .env ou das variáveis de ambiente do seu sistema
+      - GEMINI_API_KEY=AIzaSyAzT7OzE--rGBw2CllUUvoK_GhybiIMX5A
+    # O nome 'agent' será o hostname para o cliente se comunicar dentro da rede Docker
+    hostname: agent
+
+  client:
+    build:
+      context: ./nmap-client
+    ports:
+      - "5001:5001"
+    depends_on:
+      - agent
+

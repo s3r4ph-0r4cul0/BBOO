@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3R4PH :: AGENT_RESPONSE</title>
+    <style>
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        body { background-color: #000000; color: #00FF00; font-family: 'Courier New', Courier, monospace; font-size: 16px; text-shadow: 0 0 5px #00FF00; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; border: 1px solid #00FF00; box-shadow: 0 0 15px #00FF00; }
+        h1::after { content: '_'; animation: blink 1s step-end infinite; }
+        a { color: #FF00FF; text-decoration: none; }
+        a:hover { text-shadow: 0 0 5px #FF00FF; }
+        .results-box { border: 1px dashed #00FF00; padding: 20px; margin-top: 20px; background-color: #0a0a0a; }
+        /* Estilos para o JSON formatado */
+        ul, ol { list-style-type: none; padding-left: 20px; margin: 0; }
+        li { margin-bottom: 5px; }
+        .json-key { color: #00FFFF; }
+        .json-value { color: #00FF00; }
+        .json-string { color: #ADFF2F; } /* Verde-limão para strings */
+        .image-container { border: 1px solid #FF00FF; margin-top: 10px; padding: 10px; background-color: #111; }
+        img { max-width: 100%; height: auto; display: block; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>AGENT_RESPONSE</h1>
+    <a href="/"><< VOLTAR AO PAINEL</a>
+
+    <div class="results-box">
+        {# Macro Jinja2 para renderizar o JSON de forma recursiva #}
+        {% macro render_json(data) -%}
+            {% if data is mapping %}
+                <div style="padding-left: 20px; border-left: 1px solid #333;">
+                {
+                <ul>
+                {% for key, value in data.items() %}
+                    {% if key == "analyzed_output" and value is mapping %}
+                        <li><span class="json-key">"{{ key }}"</span>:
+                            <div style="border: 1px solid #00FFFF; padding: 10px; margin-top: 5px;">
+                                <strong>Host Status:</strong> <span class="json-string">"{{ value.host_status|e }}"</span><br>
+                                <strong>OS Detection:</strong> <span class="json-string">"{{ value.os_detection|e }}"</span><br>
+                                <strong>Open Ports:</strong>
+                                <ul>
+                                {% for port in value.open_ports %}
+                                    <li><span class="json-value">{{ port }}</span></li>
+                                {% endfor %}
+                                </ul>
+                                <strong>Services:</strong>
+                                <ul>
+                                {% for service in value.services %}
+                                    <li>
+                                        Port: <span class="json-value">{{ service.port }}</span>,
+                                        Service: <span class="json-string">"{{ service.service|e }}"</span>,
+                                        State: <span class="json-string">"{{ service.state|e }}"</span>
+                                        {% if service.version %}, Version: <span class="json-string">"{{ service.version|e }}"</span>{% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% else %}
+                            <li><span class="json-key">"{{ key }}"</span>: {{ render_json(value) }}{% if not loop.last %},{% endif %}</li>
+                        {% endif %}
+                {% endfor %}
+                </ul>
+                }
+                </div>
+            {% elif data is iterable and data is not string %}
+                <div style="padding-left: 20px; border-left: 1px solid #333;">
+                [
+                <ol>
+                {% for item in data %}
+                    <li>{{ render_json(item) }}{% if not loop.last %},{% endif %}</li>
+                {% endfor %}
+                </ol>
+                ]
+                </div>
+            {% elif data is string and (data.startswith('iVBORw0KGgo') or data.startswith('/9j/')) and data|length > 100 %}
+                <div class="image-container">
+                    <details>
+                        <summary style="cursor: pointer; color: #FF00FF;">[Exibir/Ocultar Imagem Base64]</summary>
+                        <img src="data:image/png;base64,{{ data }}" alt="Imagem Base64">
+                    </details>
+                </div>
+            {% else %}
+                <span class="json-string">"{{ data|e }}"</span>
+            {% endif %}
+        {%- endmacro %}
+
+        {{ render_json(data) }}
+
+    </div>
+    <br>
+    <a href="/"><< VOLTAR AO PAINEL</a>
+</div>
+</body>
+</html>
